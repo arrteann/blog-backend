@@ -1,0 +1,16 @@
+{
+  "name": "blog-api",
+  "version": "0.0.1",
+  "description": "Blog API",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "artean",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^3.0.1",
+    "uuid": "^9.0.0"
+  }
+}

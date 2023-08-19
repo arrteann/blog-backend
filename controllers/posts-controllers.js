@@ -1,20 +1,6 @@
-const { v4: uuidv4 } = require("uuid");
 const { validationResult } = require("express-validator");
 
 const Post = require("../models/post");
-
-let posts = [
-  {
-    id: "p1",
-    title: "hello world",
-    content: "try to learning nodejs",
-  },
-  {
-    id: "p2",
-    title: "write in english",
-    content: "i can speak in english",
-  },
-];
 
 const getPosts = (req, res, next) => {
   res.json(posts);

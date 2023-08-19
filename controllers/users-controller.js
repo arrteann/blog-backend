@@ -22,7 +22,7 @@ const signup = async (req, res, next) => {
 
   await user.save();
 
-  res.status(201).json({ user: newUser });
+  res.status(201).json({ user: user });
 };
 
 const login = async (req, res, next) => {
@@ -33,7 +33,7 @@ const login = async (req, res, next) => {
   if (!user || user.password !== password) {
     res.json({ message: "Email or password was wrong" });
   } else {
-    res.json({ message: "loged in", user: validUser });
+    res.json({ message: "loged in", user: user });
   }
 };
 

@@ -1,4 +1,5 @@
 const { v4: uuid4 } = require("uuid");
+const User = require("../models/user");
 
 const users = [
   {
@@ -8,28 +9,28 @@ const users = [
   },
 ];
 
-const getUsers = (req, res, next) => {
+const getUsers = async (req, res, next) => {
+  const users = await User.find();
+
   res.json(users);
 };
 
-const signup = (req, res, next) => {
-  const userID = uuid4();
-
+const signup = async (req, res, next) => {
   const { email, password } = req.body;
 
-  const newUser = { id: userID, email, password };
+  const user = new User({ email, password });
 
-  users.push(newUser);
+  await user.save();
 
   res.status(201).json({ user: newUser });
 };
 
-const login = (req, res, next) => {
+const login = async (req, res, next) => {
   const { email, password } = req.body;
 
-  const validUser = users.find((user) => user.email === email);
+  const user = await User.findOne({ email: email });
 
-  if (!validUser || validUser.password !== password) {
+  if (!user || user.password !== password) {
     res.json({ message: "Email or password was wrong" });
   } else {
     res.json({ message: "loged in", user: validUser });

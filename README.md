@@ -1,6 +1,6 @@
 # blog-backend
 
-I decided to add nodejs to my skills and for first project I made this project.
+I decided to add Nodejs to my skills and for the first project, I made this project.
 
 
 ### Features
@@ -8,5 +8,5 @@ I decided to add nodejs to my skills and for first project I made this project.
 - Authentication
 
 ### TODO:
-[ ] Migrate to Typescript
-[ ] Edit Post
+- [ ] Migrate to Typescript
+- [ ] Edit Post

@@ -1,5 +1,5 @@
 const { v4: uuidv4 } = require("uuid");
-
+const { validationResult } = require("express-validator");
 let posts = [
   {
     id: "p1",
@@ -28,6 +28,12 @@ const getPosts = (req, res, next) => {
 };
 
 const createPost = (req, res, next) => {
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {  
+    res.json(errors);
+  }
+
   const { title, content } = req.body;
 
   const createdPost = {
